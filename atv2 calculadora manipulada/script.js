@@ -1,13 +1,13 @@
-const form = document.getElementById("calcu");
+const form = document.getElementById("calcu")
 
 form.addEventListener("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault()
 
-    let pnumero = Number(document.getElementById("num1").value);
-    let snumero = Number(document.getElementById("num2").value);
-    let operacao = document.getElementById("operacao").value;
+    let pnumero = Number(document.getElementById("num1").value)
+    let snumero = Number(document.getElementById("num2").value)
+    let operacao = document.getElementById("operacao").value
 
-    let resultado;
+    let resultado
 
     if (operacao == "+") {
         resultado = pnumero + snumero
@@ -25,5 +25,5 @@ form.addEventListener("submit", function(event) {
         resultado = "Operação invalida"
     } 
 
-    document.getElementById("resultado").innerText = "Resultado: " + resultado;
-});
+    document.getElementById("resultado").innerText = "Resultado: " + resultado
+})
