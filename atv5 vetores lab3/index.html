@@ -22,51 +22,67 @@
                 <input class="btn-primary" type="submit" value="shift" onclick="f_shift()">
                 <input class="btn-primary" type="submit" value="pop" onclick="f_pop()">
             </div>
-
+            
             <p>meu array</p>
             <div class="lista" id="lista">
+            </div>
 
+            <p>selecione uma operação para transformar o array</p>
+            <div class="buttons">
+                <input class="btn-primary" type="submit" value="sort" onclick="f_sort()">
+                <input class="btn-primary" type="submit" value="filter" onclick="f_filter()">
+                <input class="btn-primary" type="submit" value="map" onclick="f_map()">
+                <input class="btn-primary" type="submit" value="find" onclick="f_find()">
+                <input class="btn-primary" type="submit" value="reduce" onclick="f_reduce()">
             </div>
         </form>
     </div>
     <script>
         let lista = []
         
+        // Funções de manipulação do array do lab1
         function f_push(){
             let valorInput = document.getElementById("valor")
-            let valor = valorInput.value
-            let tamanho = lista.length
-            for (let i = 0; i < tamanho+1; i++){
-                if (i == tamanho){
-                    lista[i] = valor
-                }
-            }
-            
+            let valor = parseInt(valorInput.value)
+            console.log(typeof(valor))
+            lista.push(valor)
         }
         function f_unshift(){
             let valorInput = document.getElementById("valor")
-            let valor = valorInput.value
-            for (let i = lista.length; i > 0; i--){
-                lista[i] = lista[i-1]
-            }
-            lista[0] = valor
+            let valor = parseInt(valorInput.value)
+            lista.unshift(valor)
         }
         function f_shift(){
             let valorInput = document.getElementById("valor")
-            let valor = valorInput.value
-            for (let i = 0; i < lista.length; i++){
-                lista[i] = lista[i+1]
-            }
-            lista.length = lista.length - 1
+            let valor = parseInt(valorInput.value)
+            lista.shift(valor)
         }
         function f_pop(){
             let valorInput = document.getElementById("valor")
-            let valor = valorInput.value
-            let tamanho = lista.length
-            lista[tamanho-1] = null
-            lista.length = lista.length - 1
+            let valor = parseInt(valorInput.value)
+            lista.pop(valor)
         }
 
+
+
+        // Funções de manipulação do array do lab2
+        function f_sort(){
+            lista.sort((a, b) => a - b)
+        }
+
+        function f_filter(){
+            lista = lista.filter((item) => item > 2)
+        }
+
+        function f_map(){
+            lista = lista.map((item) => item * 2)
+        }
+
+        function f_find(){
+            lista = [lista.find((item) => item > 10)]
+        }
+
+        
         document.getElementById("meuForm").addEventListener("submit", function (e){
             e.preventDefault()
             // Recuperar o elemento HTML
